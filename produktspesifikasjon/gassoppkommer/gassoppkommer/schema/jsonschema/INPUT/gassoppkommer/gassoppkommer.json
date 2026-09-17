@@ -1,0 +1,162 @@
+{
+  "$comment": "JSON Schema document created by ShapeChange - https://shapechange.net/",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://skjema.geonorge.no/SOSI/produktspesifikasjon/gassoppkommer/gassoppkommer/gassoppkommer/gassoppkommer.json",
+  "definitions": {
+    "GeolPavisningstype": {
+      "type": "string",
+      "enum": [
+        "0",
+        "1",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "2",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29",
+        "3",
+        "30",
+        "31",
+        "32",
+        "33",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    "Identifikasjon": {
+      "type": "object",
+      "properties": {
+        "lokalId": {
+          "type": "string"
+        },
+        "navnerom": {
+          "type": "string"
+        },
+        "versjonId": {
+          "type": "string"
+        }
+      }
+    },
+    "MarinGassoppkommePkt": {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "$ref": "https://geojson.org/schema/Point.json"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "lokalid": {
+          "type": "string"
+        },
+        "identifikasjon": {
+          "$ref": "#/definitions/Identifikasjon"
+        },
+        "datafangstdato": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "oppdateringsdato": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "datauttaksdato": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "kvalitet": {
+          "$ref": "#/definitions/Posisjonskvalitet"
+        },
+        "medium": {
+          "$ref": "#/definitions/Medium"
+        },
+        "opphav": {
+          "type": "string"
+        },
+        "toktNummer": {
+          "type": "string"
+        },
+        "linjeNummer": {
+          "type": "string"
+        },
+        "datafangsttid": {
+          "type": "string"
+        },
+        "vanndyp": {
+          "type": "string"
+        },
+        "gassøyleHøyde": {
+          "type": "integer"
+        },
+        "styrke": {
+          "type": "integer"
+        },
+        "pålitelighetProsent": {
+          "type": "integer"
+        },
+        "geolPavisningstype": {
+          "$ref": "#/definitions/GeolPavisningstype"
+        }
+      },
+      "required": [
+        "@type",
+        "datafangstdato",
+        "gassøyleHøyde",
+        "geolPavisningstype",
+        "identifikasjon",
+        "kvalitet",
+        "linjeNummer",
+        "medium",
+        "opphav",
+        "pålitelighetProsent",
+        "styrke",
+        "toktNummer",
+        "vanndyp"
+      ]
+    },
+    "Medium": {
+      "type": "string",
+      "enum": [
+        "alltidIVann",
+        "iBygning",
+        "iLuft",
+        "påIsbre",
+        "påSjøbunnen",
+        "påTerrenget",
+        "påVannoverflaten",
+        "tidvisUnderVann",
+        "ukjent",
+        "underIsbre",
+        "underSjøbunnen",
+        "underTerrenget"
+      ]
+    },
+    "Posisjonskvalitet": {
+      "type": "object",
+      "properties": {
+        "målemetode": {
+          "type": "string"
+        },
+        "nøyaktighet": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

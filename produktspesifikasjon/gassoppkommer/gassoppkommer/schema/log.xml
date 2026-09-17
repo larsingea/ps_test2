@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><ShapeChangeResult xmlns="http://www.interactive-instruments.de/ShapeChange/Result" xmlns:r="http://www.interactive-instruments.de/ShapeChange/Result" config="/home/runner/work/ps_test2/ps_test2/produktspesifikasjon/gassoppkommer/gassoppkommer/schema/shapechange-config.xml" end="Thu Sep 17 09:32:58 UTC 2026" resultCode="0" start="Thu Sep 17 09:32:50 UTC 2026" version="4.0.0">
+  <Messages>
+    <ProcessFlowInfo message="---------- Semantic validation of ShapeChange configuration: START ----------"/>
+    <Info message="Validating input parameters."/>
+    <Info message="Validation of input parameters completed."/>
+    <Info message="Validating log parameters."/>
+    <Info message="Validation of log parameters completed."/>
+    <ProcessFlowInfo message="--- Validating target with @class 'de.interactive_instruments.shapechange.core.target.xmlschema.XmlSchema' and @inputs 'INPUT' ..."/>
+    <ProcessFlowInfo message="--- Validating target with @class 'de.interactive_instruments.shapechange.core.target.json.JsonSchemaTarget' and @inputs 'INPUT' ..."/>
+    <ProcessFlowInfo message="---------- Semantic validation of ShapeChange configuration: COMPLETE ----------"/>
+    <ProcessFlowInfo message="Application schema found, package name: 'gassoppkommer', target namespace: 'https://skjema.geonorge.no/SOSI/produktspesifikasjon/gassoppkommer/gassoppkommer/1.0'"/>
+    <ProcessFlowInfo message="Now processing target 'XML Schema' for input 'INPUT'."/>
+    <ProcessFlowInfo message="Executed target class 'de.interactive_instruments.shapechange.core.target.xmlschema.XmlSchema' for input ID: 'INPUT'.&#10;-------------------------------------------------"/>
+    <ProcessFlowInfo message="Application schema found, package name: 'gassoppkommer', target namespace: 'https://skjema.geonorge.no/SOSI/produktspesifikasjon/gassoppkommer/gassoppkommer/1.0'"/>
+    <ProcessFlowInfo message="Now processing target 'JSON Schema' for input 'INPUT'."/>
+    <ProcessFlowInfo message="Executed target class 'de.interactive_instruments.shapechange.core.target.json.JsonSchemaTarget' for input ID: 'INPUT'.&#10;-------------------------------------------------"/>
+  </Messages>
+  <Results>
+    <Result href="file:/home/runner/work/ps_test2/ps_test2/produktspesifikasjon/gassoppkommer/gassoppkommer/schema/xsd/INPUT/gassoppkommer.xsd" scope="https://skjema.geonorge.no/SOSI/produktspesifikasjon/gassoppkommer/gassoppkommer/1.0" target="XML Schema">gassoppkommer.xsd</Result>
+    <Result href="file:/home/runner/work/ps_test2/ps_test2/produktspesifikasjon/gassoppkommer/gassoppkommer/schema/jsonschema/INPUT/gassoppkommer/gassoppkommer.json" target="JSON Schema">gassoppkommer.json</Result>
+  </Results>
+</ShapeChangeResult>
