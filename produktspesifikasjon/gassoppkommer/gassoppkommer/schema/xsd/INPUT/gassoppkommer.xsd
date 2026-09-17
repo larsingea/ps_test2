@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gassoppkommer="https://skjema.geonorge.no/SOSI/produktspesifikasjon/gassoppkommer/gassoppkommer/1.0" xmlns:gml="http://www.opengis.net/gml/3.2" elementFormDefault="qualified" targetNamespace="https://skjema.geonorge.no/SOSI/produktspesifikasjon/gassoppkommer/gassoppkommer/1.0" version="1.0">
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="GeolPavisningstypeType">
+    <restriction base="string">
+      <enumeration value="0"/>
+      <enumeration value="1"/>
+      <enumeration value="10"/>
+      <enumeration value="11"/>
+      <enumeration value="12"/>
+      <enumeration value="13"/>
+      <enumeration value="14"/>
+      <enumeration value="2"/>
+      <enumeration value="21"/>
+      <enumeration value="22"/>
+      <enumeration value="23"/>
+      <enumeration value="24"/>
+      <enumeration value="25"/>
+      <enumeration value="26"/>
+      <enumeration value="27"/>
+      <enumeration value="28"/>
+      <enumeration value="29"/>
+      <enumeration value="3"/>
+      <enumeration value="30"/>
+      <enumeration value="31"/>
+      <enumeration value="32"/>
+      <enumeration value="33"/>
+      <enumeration value="4"/>
+      <enumeration value="5"/>
+      <enumeration value="6"/>
+      <enumeration value="7"/>
+      <enumeration value="8"/>
+      <enumeration value="9"/>
+    </restriction>
+  </simpleType>
+  <element name="Identifikasjon" substitutionGroup="gml:AbstractObject" type="gassoppkommer:IdentifikasjonType"/>
+  <complexType name="IdentifikasjonType">
+    <sequence>
+      <element minOccurs="0" name="lokalId" type="string">
+        <annotation>
+          <documentation>Lokal identifikator av et objekt&lt;br/&gt;Merknad: Det er dataleverendørens ansvar å sørge for at den lokale identifikatoren er unik innenfor navnerommet.</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="navnerom" type="string">
+        <annotation>
+          <documentation>Navnerom som unikt identifiserer datakilden til et objekt, anbefales å være en http-URI&lt;br/&gt;Eksempel: http://data.geonorge.no/SentraltStedsnavnsregister/1.0
+&lt;br/&gt;Merknad : Verdien for nanverom vil eies av den dataprodusent som har ansvar for de unike identifikatorene og må være registrert i data.geonorge.no eller data.norge.no</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="versjonId" type="string">
+        <annotation>
+          <documentation>Identifikasjon av en spesiell versjon av et geografisk objekt (instans)</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="IdentifikasjonPropertyType">
+    <sequence>
+      <element ref="gassoppkommer:Identifikasjon"/>
+    </sequence>
+  </complexType>
+  <element name="MarinGassoppkommePkt" substitutionGroup="gml:AbstractFeature" type="gassoppkommer:MarinGassoppkommePktType">
+    <annotation>
+      <documentation>Datasettet viser eller indikerer gassoppkommer fra havbunnen. Detaljnivået på datasettet tilsier bruk innenfor kartmålestokken: 1:5 000 - 1:500 000.</documentation>
+    </annotation>
+  </element>
+  <complexType name="MarinGassoppkommePktType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="geometry" type="gml:PointPropertyType"/>
+          <element minOccurs="0" name="lokalid" type="string">
+            <annotation>
+              <documentation>lokalid</documentation>
+            </annotation>
+          </element>
+          <element name="identifikasjon" type="gassoppkommer:IdentifikasjonPropertyType"/>
+          <element name="datafangstdato" type="dateTime">
+            <annotation>
+              <documentation>Dato når objektet siste gang ble registrert/observert/målt i terrenget&lt;br/&gt;Merknad: I mange tilfeller er denne forskjellig fra oppdateringsdato, da registrerte endringer kan bufres i en kortere eller lengre periode før disse legges inn i databasen.&lt;br/&gt;Ved førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppdateringsdato" type="dateTime">
+            <annotation>
+              <documentation>Tidspunkt for siste endring på objektet &lt;br/&gt;Merknad: &lt;br/&gt;Oppdateringsdato kan være forskjellig fra datafangsdato ved at data som er registrert kan bufres en kortere eller lengre periode før disse legges inn i datasystemet (databasen).</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="datauttaksdato" type="dateTime">
+            <annotation>
+              <documentation>Dato for uttak fra en database&lt;br/&gt;Merknad:&lt;br/&gt;Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase eller en kopidatabase.</documentation>
+            </annotation>
+          </element>
+          <element name="kvalitet" type="gassoppkommer:PosisjonskvalitetPropertyType"/>
+          <element name="medium" type="gassoppkommer:MediumType">
+            <annotation>
+              <documentation>Objektets beliggenhet i forhold til jordoverflaten&lt;br/&gt;Eksempel:
+På bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
+            </annotation>
+          </element>
+          <element name="opphav" type="string">
+            <annotation>
+              <documentation>Referanse til opphavsmaterialet, kildematerialet, organisasjons/publiseringskilde
+&lt;br/&gt;Merknad: &lt;br/&gt;Kan også beskrive navn på person og årsak til oppdatering</documentation>
+            </annotation>
+          </element>
+          <element name="toktNummer" type="string">
+            <annotation>
+              <documentation>Unikt navn på måleoppdrag</documentation>
+            </annotation>
+          </element>
+          <element name="linjeNummer" type="string">
+            <annotation>
+              <documentation>Linjenummer i et tokt. Sammen med toktnummer gir denne et unikt navn for linjen</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="datafangsttid" type="string">
+            <annotation>
+              <documentation>Klokkeslett når objektet ble registrert/observert/målt i felt</documentation>
+            </annotation>
+          </element>
+          <element name="vanndyp" type="string">
+            <annotation>
+              <documentation>Vanndyp der prøven er tatt.&lt;br/&gt;-- Definition – &lt;br/&gt;Water depth where the sample is taken.</documentation>
+            </annotation>
+          </element>
+          <element name="gassøyleHøyde" type="integer">
+            <annotation>
+              <documentation>Estimert høyde på en gassøyle i vann</documentation>
+            </annotation>
+          </element>
+          <element name="styrke" type="integer">
+            <annotation>
+              <documentation>Relativ styrke på akustisk signal i en gassøyle</documentation>
+            </annotation>
+          </element>
+          <element name="pålitelighetProsent" type="integer">
+            <annotation>
+              <documentation>Pålitelighet i prosent (10-100) som viser hvor stor sannsynligheten er for at signaler i vannkolonnedata viser et gassoppkomme</documentation>
+            </annotation>
+          </element>
+          <element name="geolPavisningstype" type="gassoppkommer:GeolPavisningstypeType">
+            <annotation>
+              <documentation>Hvor sikkert et geologisk objekt er påvist i terrenget, eller hvilken metode som ligger til grunn for å påvisningen/registreringen
+-- Definition -- with what certainty a geological object has been identified in the terrain, or on which method the identification/registration is based</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="MarinGassoppkommePktPropertyType">
+    <sequence minOccurs="0">
+      <element ref="gassoppkommer:MarinGassoppkommePkt"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="MediumType">
+    <restriction base="string">
+      <enumeration value="alltidIVann"/>
+      <enumeration value="iBygning"/>
+      <enumeration value="iLuft"/>
+      <enumeration value="påIsbre"/>
+      <enumeration value="påSjøbunnen"/>
+      <enumeration value="påTerrenget"/>
+      <enumeration value="påVannoverflaten"/>
+      <enumeration value="tidvisUnderVann"/>
+      <enumeration value="ukjent"/>
+      <enumeration value="underIsbre"/>
+      <enumeration value="underSjøbunnen"/>
+      <enumeration value="underTerrenget"/>
+    </restriction>
+  </simpleType>
+  <element name="Posisjonskvalitet" substitutionGroup="gml:AbstractObject" type="gassoppkommer:PosisjonskvalitetType"/>
+  <complexType name="PosisjonskvalitetType">
+    <sequence>
+      <element minOccurs="0" name="målemetode" type="string">
+        <annotation>
+          <documentation>Metode for måling i grunnriss (x,y), og høyde (z) når metoden er den samme som ved måling i grunnriss</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="nøyaktighet" type="integer">
+        <annotation>
+          <documentation>Punktstandardavviket i grunnriss for punkter samt tverravvik for linjer&lt;br/&gt;Merknad:&lt;br/&gt;Oppgitt i cm</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="PosisjonskvalitetPropertyType">
+    <sequence>
+      <element ref="gassoppkommer:Posisjonskvalitet"/>
+    </sequence>
+  </complexType>
+</schema>
