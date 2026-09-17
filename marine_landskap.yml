@@ -2,6 +2,8 @@ metadataId: 9db56b4f-474a-4e79-bd87-a2f0e4e4728e
 output_directory: produktspesifikasjon
 product_slug: marine_landskap
 updated: '2026-09-17'
+outputs: geopackage,xsd,jsonschema,odcs,ldproxy
+ldproxy_provider: postgis
 scopes:
 - name: OGC API Marine landskap
   url: https://geo.ngu.no/api/features/marinelandskap/collections
