@@ -1,0 +1,19 @@
+---
+id: ogc_api_marine_landskap
+label: FIXME
+description: FIXME
+enabled: true
+serviceType: OGC_API
+collections:
+  dataavgrensning:
+    id: dataavgrensning
+    label: dataavgrensning
+    enabled: true
+  marinlandskap:
+    id: marinlandskap
+    label: marinlandskap
+    enabled: true
+  marinlandskapsgrense:
+    id: marinlandskapsgrense
+    label: marinlandskapsgrense
+    enabled: true

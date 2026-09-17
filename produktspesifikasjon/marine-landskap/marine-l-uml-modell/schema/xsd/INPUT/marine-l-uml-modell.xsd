@@ -1,0 +1,1012 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:marinelumlmodell="https://skjema.geonorge.no/SOSI/produktspesifikasjon/marine-landskap/marine-l-uml-modell/1.0" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://skjema.geonorge.no/SOSI/produktspesifikasjon/marine-landskap/marine-l-uml-modell/1.0" version="1.0">
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="https://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="Dataavgrensning" substitutionGroup="gml:AbstractFeature" type="marinelumlmodell:DataavgrensningType">
+    <annotation>
+      <documentation>generell avgrensningslinje, f.eks. mellom datasett med ulik kvalitet, innhold eller detaljering</documentation>
+    </annotation>
+  </element>
+  <complexType name="DataavgrensningType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="grense" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger overgang mellom ulike fenomener</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="identifikasjon" type="marinelumlmodell:IdentifikasjonPropertyType">
+            <annotation>
+              <documentation>unik identifikasjon av et objekt</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="DataavgrensningPropertyType">
+    <sequence minOccurs="0">
+      <element ref="marinelumlmodell:Dataavgrensning"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="FellesegenskaperFlater" substitutionGroup="gml:AbstractFeature" type="marinelumlmodell:FellesegenskaperFlaterType">
+    <annotation>
+      <documentation>abstrakt objekt som bærer en rekke egenskaper som er fagområde-uavhengige og kan benyttes for alle objekttyper
+
+Merknad:
+Spesielt i produktspesifikasjonsarbeid vil en velge egenskaper og avgrensningslinjer fra denne klassen.</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="FellesegenskaperFlaterType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="identifikasjon" type="marinelumlmodell:IdentifikasjonPropertyType">
+            <annotation>
+              <documentation>unik identifikasjon av et objekt</documentation>
+            </annotation>
+          </element>
+          <element name="datauttaksdato" type="date">
+            <annotation>
+              <documentation>dato for uttak fra en database
+
+Merknad:
+Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase eller en kopidatabase.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">DATAUTTAKSDATO</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="førsteDigitaliseringsdato" type="date">
+            <annotation>
+              <documentation>dato når en representasjon av objektet i digital form første gang ble etablert
+
+Merknad:
+førsteDigitaliseringsdato kan skille seg fra førsteDatafangstdato ved at den første datafangsten skjedde analogt og gjort om til digital form senere i en produksjonsprosess.
+Eventuelt at innlegging i databasen skjedde på et senere tidspunkt enn registreringen /observasjonen / målingen av objektet.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">FØRSTEDIGITALISERINGSDATO</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="FellesegenskaperFlaterPropertyType">
+    <sequence minOccurs="0">
+      <element ref="marinelumlmodell:FellesegenskaperFlater"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="FellesegenskaperLosmasse" substitutionGroup="gml:AbstractFeature" type="marinelumlmodell:FellesegenskaperLosmasseType">
+    <annotation>
+      <documentation>abstrakt objekt som bærer en rekke egenskaper som er fagområde-uavhengige og kan benyttes for alle objekttyper
+
+Merknad:
+Spesielt i produktspesifikasjonsarbeid vil en velge egenskaper og avgrensningslinjer fra denne klassen.</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="FellesegenskaperLosmasseType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="datauttaksdato" type="date">
+            <annotation>
+              <documentation>dato for uttak fra en database
+
+Merknad:
+Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase eller en kopidatabase.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">DATAUTTAKSDATO</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="førsteDigitaliseringsdato" type="date">
+            <annotation>
+              <documentation>dato når en representasjon av objektet i digital form første gang ble etablert
+
+Merknad:
+førsteDigitaliseringsdato kan skille seg fra førsteDatafangstdato ved at den første datafangsten skjedde analogt og gjort om til digital form senere i en produksjonsprosess.
+Eventuelt at innlegging i databasen skjedde på et senere tidspunkt enn registreringen /observasjonen / målingen av objektet.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">FØRSTEDIGITALISERINGSDATO</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppdateringsdato" type="date">
+            <annotation>
+              <documentation>dato for siste endring på objektetdataene
+
+Merknad:
+Oppdateringsdato kan være forskjellig fra Datafangsdato ved at data som er registrert kan bufres en kortere eller lengre periode før disse legges inn i datasystemet (databasen).
+
+-Definition-
+Date and time at which this version of the spatial object was inserted or changed in the spatial data set.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OPPDATERINGSDATO</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="kvalitet" type="marinelumlmodell:PosisjonskvalitetPropertyType">
+            <annotation>
+              <documentation>beskrivelse av kvaliteten på stedfestingen
+
+Merknad: Denne er identisk med ..KVALITET i tidligere versjoner av SOSI.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">KVALITET</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="medium" type="marinelumlmodell:MediumType">
+            <annotation>
+              <documentation>objektets beliggenhet i forhold til jordoverflaten
+
+Eksempel:
+På bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">MEDIUM</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="mediumNavn" type="string">
+            <annotation>
+              <documentation>objektets beliggenhet i forhold til jordoverflaten
+
+Eksempel:
+På bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">MEDIUMNAVN</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="opphav" type="string">
+            <annotation>
+              <documentation>referanse til opphavsmaterialet, kildematerialet, organisasjons/publiseringskilde
+
+Merknad:
+Kan også beskrive navn på person og årsak til oppdatering</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OPPHAV</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="FellesegenskaperLosmassePropertyType">
+    <sequence minOccurs="0">
+      <element ref="marinelumlmodell:FellesegenskaperLosmasse"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="GeolPavisningstypeType">
+    <annotation>
+      <documentation>hvor sikkert et geologisk objekt er påvist i terrenget, eller hvilken metode som ligger til grunn for påvisningen/registreringen</documentation>
+    </annotation>
+    <union memberTypes="marinelumlmodell:GeolPavisningstypeEnumerationType marinelumlmodell:GeolPavisningstypeOtherType"/>
+  </simpleType>
+  <simpleType name="GeolPavisningstypeEnumerationType">
+    <annotation>
+      <documentation>hvor sikkert et geologisk objekt er påvist i terrenget, eller hvilken metode som ligger til grunn for påvisningen/registreringen</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Ikke spesifisert"/>
+      <enumeration value="Sikker påvisning/observasjon">
+        <annotation>
+          <documentation>Avgrensningen eller registreringen av objektet er påvist eller observert i felt</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Usikker påvisning/observasjon">
+        <annotation>
+          <documentation>Ikke påvist/observert men antatt avgrensning/registrering av objekt</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Konstruert avgrensning">
+        <annotation>
+          <documentation>Tilfeldig plassert avgrensning og meget usikker.  Benyttes blant annet under vann- eller breoverflater</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Geofysisk tolket grense">
+        <annotation>
+          <documentation>Avgrensning basert på geofysiske indikasjoner</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Dårlig synlig avgrensning i terrenget">
+        <annotation>
+          <documentation>Basert på generalisert tolkning av objekter med små innbyrdes variasjoner (f.eks. skille mellom tynt humusdekke og bart fjell, eller mellom to svært like bergarter)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Overgangsmessig grense">
+        <annotation>
+          <documentation>Glidende overgang mellom to bergarter,  jordarter o.l.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Tolket avgrensning/registrering">
+        <annotation>
+          <documentation>Avgrensninger av geologisk objekt eller delobjekt fremkommet ved generalisering, samtolkning eller aggregering</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Flyfototolket objekt eller delobjekt"/>
+      <enumeration value="Observasjon med usikker geografisk beliggenhet"/>
+      <enumeration value="Avgrensning ikke basert på geologi">
+        <annotation>
+          <documentation>Der f.eks. en administrativ grense eller kystkontur har bidratt til avgrensning av et geologisk objekt</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Avgrensning basert på geofysiske data/metoder verifisert ved prøvetaking"/>
+      <enumeration value="Avgrensning basert på tolkning av tilgjengelige geologiske/geofysiske data (varierende oppløsning), litteratur og kart"/>
+      <enumeration value="Avgrensning basert på geologisk observasjon i felt, prøvetaking og analyser"/>
+      <enumeration value="Tolket avgrensning basert på tilgjengelig geologisk kartlegging"/>
+      <enumeration value="Avgrensning basert på prøvetaking"/>
+      <enumeration value="Avgrensning basert på seismikk"/>
+      <enumeration value="Avgrensning basert på detaljerte dybdedata">
+        <annotation>
+          <documentation>Avgrensning ved bruk av multistråleekkolodd eller interferometrisk sonar</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Avgrensning basert på backscatter data/sidescan.sonar">
+        <annotation>
+          <documentation>Avgrensning basert på bunnreflektivitet/data fra sidescan.sonar</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Avgrensning basert på prøvetaking og akustiske data/metoder"/>
+      <enumeration value="Avgrensning basert på akustiske data/metoder"/>
+      <enumeration value="Avgrensning basert på flere metoder/datatyper"/>
+      <enumeration value="Avgrensning basert på undervannsfoto og/eller -video"/>
+      <enumeration value="Aavgrensning basert på akustiske data/metoder verifisert ved prøvetaking, foto o.l.">
+        <annotation>
+          <documentation>Avgrensning basert på akustiske data/metoder verifisert ved prøvetaking, foto o.l.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Avgrensningen er foretatt ut fra tolkning basert på tilgjengelige batymetriske data (varierende oppløsning), litteratur og kart"/>
+      <enumeration value="Avgrensning basert på Lidardata, flyfoto og/eller multi-/hyperspektrale bilder og eksisterende geologisk informasjon"/>
+      <enumeration value="Avgrensning basert på romlig modellering med utgangspunkt i detaljerte dybdedata"/>
+      <enumeration value="Avgrensning basert på romlig modellering med utgangspunkt i detaljerte dybdedata, prøvetaking samt fysiske datasett som strøm, bølger, eksponering og lysforhold"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="GeolPavisningstypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Identifikasjon" substitutionGroup="gml:AbstractObject" type="marinelumlmodell:IdentifikasjonType"/>
+  <complexType name="IdentifikasjonType">
+    <sequence>
+      <element name="lokalId" type="string">
+        <annotation>
+          <documentation>lokal identifikator, tildelt av dataleverendør/dataforvalter. Den lokale identifikatoren er unik innenfor navnerommet, ingen andre objekter har samme identifikator.
+
+NOTE: Det er data leverendørens ansvar å sørge for at denne lokale identifikatoren er unik innenfor navnerommet.</documentation>
+          <appinfo>
+            <sc:taggedValue tag="SOSI_navn">LOKALID</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="navnerom" type="string">
+        <annotation>
+          <documentation>navnerom som unikt identifiserer datakilden til objektet, starter med to bokstavs kode jfr ISO 3166. Benytter understreking  ("_") dersom data produsenten ikke er assosiert med bare et land.
+
+NOTE 1 : Verdien for nanverom vil eies av den dataprodusent som har ansvar for de unike identifikatorene og vil registreres i "INSPIRE external  Object Identifier Namespaces Register"
+
+Eksempel: NO for Norge.</documentation>
+          <appinfo>
+            <sc:taggedValue tag="SOSI_navn">NAVNEROM</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="versjonId" type="string">
+        <annotation>
+          <documentation>identifikasjon av en spesiell versjon av et geografisk objekt (instans), maksimum lengde på 25 karakterers. Dersom spesifikasjonen av et geografisk objekt med en identifikasjon inkludererer livsløpssyklusinformasjon, benyttes denne versjonId for å skille mellom ulike versjoner av samme objekt. versjonId er en unik  identifikasjon av versjonen.
+
+NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO 8601, slik som  "2007-02-12T12:12:12+05:30" som versjonId.</documentation>
+          <appinfo>
+            <sc:taggedValue tag="SOSI_navn">VERSJONID</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="IdentifikasjonPropertyType">
+    <sequence>
+      <element ref="marinelumlmodell:Identifikasjon"/>
+    </sequence>
+  </complexType>
+  <simpleType name="LandskapTypeType">
+    <annotation>
+      <documentation>inndeling av havområdene i ulike marine landskap. Landskap er definert som større geografiske områder med enhetlig visuelt preg</documentation>
+    </annotation>
+    <union memberTypes="marinelumlmodell:LandskapTypeEnumerationType marinelumlmodell:LandskapTypeOtherType"/>
+  </simpleType>
+  <simpleType name="LandskapTypeEnumerationType">
+    <annotation>
+      <documentation>inndeling av havområdene i ulike marine landskap. Landskap er definert som større geografiske områder med enhetlig visuelt preg</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Strandflate">
+        <annotation>
+          <documentation>Relativt flat plattform av vanligvis krystalline bergarter, delvis over og delvis under havnivå. Strandflaten danner en småkupert sletteform eller plattform, klart avgrenset mot fjell/høyere land i bakkant og mot kontinentalsokkelen utenfor.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Jevn kontinentalskråning">
+        <annotation>
+          <documentation>Område av kontinentalskråningen mellom marine gjel. Kontinentalskråningen er området mellom kontinentalsokkel og dyphavsslette.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Marint gjel">
+        <annotation>
+          <documentation>Dyp innskjæring med bratte skråninger i kontinentalskråningen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Marin dal">
+        <annotation>
+          <documentation>Dal som gjennomskjærer kontinentalsokkelen og strandflaten med dyp &gt;200 m og bredde &gt;1 km.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Åpen fjord">
+        <annotation>
+          <documentation>Bred fjord med moderat dybde (vanndyp &lt;200 m) og fjordsider som stiger mindre enn 200 m over havnivå. Fjordsidene er relativt slake (10º til 15º).</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Nedskåret fjord">
+        <annotation>
+          <documentation>Dyp fjord (vanndyp &gt;200 m) med fjordsider som stiger mer enn 200 m over havnivå. Fjordsidene er relativt bratte (&gt;15º, lokalt finnes flog og stup) i det meste av nedskjæringens (fjorddalens) lengde. Fjorder av denne type har vanligvis en markert terskel.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Dyphavsslette">
+        <annotation>
+          <documentation>Havbunnen i dyphavet nedenfor/under kontinentalskråningen. Dyphavsslette definert her inkluderer både dyphavsslette og kontinentalstigning. Relativt relieff er lavt (&lt;50 m/km2).</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Kontinentalskråningsslette">
+        <annotation>
+          <documentation>Platå på kontinentalskråningen. Kontinentalskråningsslette har vanligvis små variasjoner i relieff og et tykt sedimentdekke.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Kontinentalsokkelslette">
+        <annotation>
+          <documentation>Relativt flat plattform på kontinentalsokkelen, mellom kontinentalskråningen og strandflaten/kysten.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Grunn marin dal">
+        <annotation>
+          <documentation>Forsenkning på kontinentalsokkelen, med dyp 100-200 m og bredde &gt;1 km.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Marint fjellandskap">
+        <annotation>
+          <documentation>Område av havbunnen med relativt relieff &gt;50 m innenfor en rute på 1 km&lt;sup&gt;2&lt;/sup&gt;, men uten veldefinerte daler.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Øy- og sundlandskap">
+        <annotation>
+          <documentation>Kystlandskap, både over og under havnivå, som ikke hører til strandflaten. Relativt relieff &gt;50 m innenfor en rute på 1 km&lt;sup&gt;2&lt;/sup&gt;. Tallrike små øyer adskilt av sund gjør øy- og sundlandskap til en karakteristisk landskapstype.</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="LandskapTypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element abstract="true" name="LosmasseGrense" substitutionGroup="marinelumlmodell:FellesegenskaperLosmasse" type="marinelumlmodell:LosmasseGrenseType">
+    <annotation>
+      <documentation>avgrensning av ulike typer løsmasser (jordarter)</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="LosmasseGrenseType">
+    <complexContent>
+      <extension base="marinelumlmodell:FellesegenskaperLosmasseType">
+        <sequence>
+          <element name="geolPavisningstype" type="marinelumlmodell:GeolPavisningstypeType">
+            <annotation>
+              <documentation>hvor sikkert et geologisk objekt er påvist i terrenget, eller hvilken metode som ligger til grunn for å påvisningen/registreringen
+-- Definition -- with what certainty a geological object has been identified in the terrain, or on which method the identification/registration is based</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">GEOPÅVISNINGTYPE</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="geolPavisningstypeNavn" type="string">
+            <annotation>
+              <documentation>hvor sikkert et geologisk objekt er påvist i terrenget, eller hvilken metode som ligger til grunn for å påvisningen/registreringen.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">GEOPÅVISNINGTYPENAVN</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="temakvalitet" type="marinelumlmodell:TemaKvalitetType">
+            <annotation>
+              <documentation>kvaliteten på registrering/kartlegging av tema sett i forhold til faktiske forhold i naturen. Ulik tematisk oppløsning/generaliseringsgrad kan være styrt av temaets samfunnsmessige betydning, områdets arealmessige betydning eller prosjektets økonomi. Med nøyaktighet i denne sammenheng menes hvor korrekt registreringen avspeiler objektets posisjon i naturen og presisjonen i valg av tematisk innhold i forhold til generalisering
+
+Merknad: Tematisk oppløsning/generaliseringsgrad kan være styrt av temaets samfunnsmessige betydning, områdets arealmessige betydning eller prosjektets målsetning</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>http://skjema.geonorge.no/SOSI/produktspesifikasjon/MarineBunnsedimenterKornstørrelse-20201201/TemaKvalitet</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">TEMAKVAL</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LosmasseGrensePropertyType">
+    <sequence minOccurs="0">
+      <element ref="marinelumlmodell:LosmasseGrense"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="MarinLandskap" substitutionGroup="marinelumlmodell:FellesegenskaperFlater" type="marinelumlmodell:MarinLandskapType">
+    <annotation>
+      <documentation>areal som viser utstrekningen til et visst landskap på havbunnen</documentation>
+    </annotation>
+  </element>
+  <complexType name="MarinLandskapType">
+    <complexContent>
+      <extension base="marinelumlmodell:FellesegenskaperFlaterType">
+        <sequence>
+          <element name="område" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>objektets utstrekning</documentation>
+            </annotation>
+          </element>
+          <element name="landskapType" type="marinelumlmodell:LandskapTypeType">
+            <annotation>
+              <documentation>inndeling av havområdene i ulike marine landskap. Landskap er definert som større geografiske områder med enhetlig visuelt preg</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">LANDSKAPTYPE</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="landskapTypeNavn" type="string">
+            <annotation>
+              <documentation>inndeling av havområdene i ulike marine landskap. Landskap er definert som større geografiske områder med enhetlig visuelt preg</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">LANDSKAPTYPENAVN</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="egnetMålestokk" type="integer">
+            <annotation>
+              <documentation>beskriver det målestokksområdet hvor dataene er best egnet. Egenskapen viser målestokktallet, eksempel: 1:50 000 = 50000.
+Objekter kan være utvalgt, plassert eller generalisert i forhold til egnet målestokk.
+Denne egenskapen kan benyttes for å velge hvilke objekter som skal tegnes ut i ulike målestokker.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">EGNETMÅLESTOKK</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensning" type="marinelumlmodell:DataavgrensningPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensning" type="marinelumlmodell:MarinLandskapsgrensePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="MarinLandskapPropertyType">
+    <sequence minOccurs="0">
+      <element ref="marinelumlmodell:MarinLandskap"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="MarinLandskapsgrense" substitutionGroup="marinelumlmodell:LosmasseGrense" type="marinelumlmodell:MarinLandskapsgrenseType">
+    <annotation>
+      <documentation>grense for marine landskapsområder</documentation>
+    </annotation>
+  </element>
+  <complexType name="MarinLandskapsgrenseType">
+    <complexContent>
+      <extension base="marinelumlmodell:LosmasseGrenseType">
+        <sequence>
+          <element name="grense" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger overgang mellom ulike fenomener</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="identifikasjon" type="marinelumlmodell:IdentifikasjonPropertyType">
+            <annotation>
+              <documentation>unik identifikasjon av et objekt</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="MarinLandskapsgrensePropertyType">
+    <sequence minOccurs="0">
+      <element ref="marinelumlmodell:MarinLandskapsgrense"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="MediumType">
+    <annotation>
+      <documentation>objektets beliggenhet i forhold til jordoverflaten
+
+Eksempel:
+Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
+    </annotation>
+    <union memberTypes="marinelumlmodell:MediumEnumerationType marinelumlmodell:MediumOtherType"/>
+  </simpleType>
+  <simpleType name="MediumEnumerationType">
+    <annotation>
+      <documentation>objektets beliggenhet i forhold til jordoverflaten
+
+Eksempel:
+Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Alltid i vann"/>
+      <enumeration value="I bygning/bygningsmessig anlegg"/>
+      <enumeration value="I luft"/>
+      <enumeration value="På isbre"/>
+      <enumeration value="På sjøbunnen"/>
+      <enumeration value="På terrenget/på bakkenivå">
+        <annotation>
+          <documentation>default</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="På vannoverflaten"/>
+      <enumeration value="Tidvis under vann"/>
+      <enumeration value="Under isbre"/>
+      <enumeration value="Under sjøbunnen"/>
+      <enumeration value="Under terrenget"/>
+      <enumeration value="Ukjent">
+        <annotation>
+          <documentation>ukjent</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="MediumOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="MålemetodeType">
+    <annotation>
+      <documentation>metode som ligger til grunn for registrering av posisjon
+
+
+-- Definition - -
+method on which registration of position is based</documentation>
+    </annotation>
+    <union memberTypes="marinelumlmodell:MålemetodeEnumerationType marinelumlmodell:MålemetodeOtherType"/>
+  </simpleType>
+  <simpleType name="MålemetodeEnumerationType">
+    <annotation>
+      <documentation>metode som ligger til grunn for registrering av posisjon
+
+
+-- Definition - -
+method on which registration of position is based</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Terrengmålt: Uspesifisert måleinstrument">
+        <annotation>
+          <documentation>Målt i terrenget , uspesifisert metode/måleinstrument</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Terrengmålt: Totalstasjon">
+        <annotation>
+          <documentation>Målt i terrenget med totalstasjon</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Terrengmålt: Teodolitt og el avstandsmåler">
+        <annotation>
+          <documentation>Målt i terrenget med teodolitt og elektronisk avstandsmåler</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Terrengmålt: Teodolitt og målebånd">
+        <annotation>
+          <documentation>Målt i terrenget med teodolitt og målebånd</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Terrengmålt: Ortogonalmetoden">
+        <annotation>
+          <documentation>Målt i terrenget, ortogonalmetoden</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Utmål">
+        <annotation>
+          <documentation>Punkt beregnet på bakgrunn av måling mot andre punkter, slik som to avstander eller avstand og retning
+
+-- Definition --
+Point calculated on the basis of other items, such as two distances or distance + direction.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Tatt fra plan">
+        <annotation>
+          <documentation>Tatt fra plan eller godkjent tiltak</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Annet  (denne har ingen mening, bør fjernes?)">
+        <annotation>
+          <documentation>Annet</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Stereoinstrument">
+        <annotation>
+          <documentation>Målt i stereoinstrument, uspesifisert instrument</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Aerotriangulert">
+        <annotation>
+          <documentation>Punkt beregnet ved aerotriangulering
+
+-- Definition --
+Point calculated by aerotriangulation</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Stereoinstrument: Analytisk plotter">
+        <annotation>
+          <documentation>Målt i stereoinstrument, analytisk plotter</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Stereoinstrument: Autograf">
+        <annotation>
+          <documentation>Målt i stereoinstrument, autograf, analogt instrument</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Stereoinstrument: Digitalt">
+        <annotation>
+          <documentation>Målt i stereoinstrument, digitalt instrument</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Scannet fra kart">
+        <annotation>
+          <documentation>Geometri overført fra kart maskinelt ved hjelp av skanner, uspesifisert kartmedium</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skannet fra kart: Blyantoriginal">
+        <annotation>
+          <documentation>Geometri overført fra kart maskinelt ved hjelp av skanner. Kartmedium er blyantoriginal</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skannet fra kart: Rissefolie">
+        <annotation>
+          <documentation>Geometri overført fra kart maskinelt ved hjelp av skanner. Kartmedium er rissefolie</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skannet fra kart: Transparent folie, god kvalitet">
+        <annotation>
+          <documentation>Geometri overført fra kart maskinelt ved hjelp av skanner. Kartmedium er transparent folie av  god kvalitet.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skannet fra kart: Transparent folie, mindre god kvalitet">
+        <annotation>
+          <documentation>Geometri overført fra kart maskinelt ved hjelp av skanner. Kartmedium er transparent folie av mindre god kvalitet</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skannet fra kart: Papirkopi">
+        <annotation>
+          <documentation>Geometri overført fra kart maskinelt ved hjelp av skanner. Kartmedium er papirkopi.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Flybåren laserscanner">
+        <annotation>
+          <documentation>Målt med laserskanner fra fly</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Bilbåren laser">
+        <annotation>
+          <documentation>Målt med laserskanner plassert i kjøretøy</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Lineær referanse">
+        <annotation>
+          <documentation>brukes for objekter som er stedfestet med lineær referanse, enten disse leveres med stedfesting kun som lineære referanser, eller med koordinatgeometri avledet fra lineære referanser</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringbord: Ortofoto eller flybilde">
+        <annotation>
+          <documentation>Geometri overført fra ortofoto eller flybilde ved hjelp av manuell registrering på et digitaliseringsbord, uspesifisert bildemedium</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringbord: Ortofoto, film">
+        <annotation>
+          <documentation>Geometri overført fra ortofoto ved hjelp av manuell registrering på et digitaliseringsbord. Bildemedium er film</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringbord: Ortofoto, fotokopi">
+        <annotation>
+          <documentation>Geometri overført fra ortofoto ved hjelp av manuell registrering på et digitaliseringsbord. Bildemedium er fotokopi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringbord: Flybilde, film">
+        <annotation>
+          <documentation>Geometri overført fra flybilde ved hjelp av manuell registrering på et digitaliseringsbord. Bildemedium er film</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringbord: Flybilde, fotokopi">
+        <annotation>
+          <documentation>Geometri overført fra flybilde ved hjelp av manuell registrering på et digitaliseringsbord. Bildemedium er fotokopi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitalisert på skjerm fra ortofoto">
+        <annotation>
+          <documentation>Geometri overført fra ortofoto ved hjelp av manuell registrering på skjerm</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitalisert på skjerm fra satellittbilde">
+        <annotation>
+          <documentation>Geometri overført fra satellittbilde ved hjelp av manuell registrering på skjerm</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitalisert på skjerm fra andre digitale rasterdata"/>
+      <enumeration value="Digitalisert på skjerm fra tolkning av seismikk"/>
+      <enumeration value="Vektorisering av laserdata">
+        <annotation>
+          <documentation>Vektorisering fra laserdata, brukes også der vektoriseringen støttes av ortofoto</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringsbord: Kart">
+        <annotation>
+          <documentation>Geometri overført fra kart ved hjelp av manuell registrering på et digitaliseringsbord, medium uspesifisert</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringsbord: Kart, blyantoriginal">
+        <annotation>
+          <documentation>Geometri overført fra kart ved hjelp av manuell registrering på et digitaliseringsbord. Kartmedium er blyantoriginal</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringsbord: Kart, rissefoile">
+        <annotation>
+          <documentation>Geometri overført fra kart ved hjelp av manuell registrering på et digitaliseringsbord. Kartmedium er rissefolie</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringsbord: Kart, transparent foile, god kvalitet">
+        <annotation>
+          <documentation>Geometri overført fra kart ved hjelp av manuell registrering på et digitaliseringsbord. Kartmedium er transparent folie av god kvalitet, samkopi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringsbord: Kart, transparent foile, mindre god kvalitet">
+        <annotation>
+          <documentation>Geometri overført fra kart ved hjelp av manuell registrering på et digitaliseringsbord. Kartmedium er transparent folie av mindre god kvalitet, samkopi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitaliseringsbord: Kart, papirkopi">
+        <annotation>
+          <documentation>Geometri overført fra kart ved hjelp av manuell registrering på et digitaliseringsbord. Kartmedium er papirkopi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Digitalisert på skjerm fra skannet kart">
+        <annotation>
+          <documentation>Geometri overført fra kart ved hjelp av manuell registrering på skjerm, medium skannet kart (raster), samkopi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Genererte data (interpolasjon)">
+        <annotation>
+          <documentation>Genererte data, interpolasjonsmetode. Ikke nærmere spesifisert</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Genererte data (interpolasjon): Terrengmodell">
+        <annotation>
+          <documentation>Genererte data, interpolasjonsmetode, fra terrengmodell</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Genererte data (interpolasjon): Vektet middel">
+        <annotation>
+          <documentation>Genererte data, interpolasjonsmetode, vektet middel</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Genererte data: Fra annen geometri">
+        <annotation>
+          <documentation>Genererte data: Sirkelgeometri, korridor eller annen geometri generert ut fra f.eks et punkt eller en linje (f.eks midtlinje veg)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Genererte data: Generalisering"/>
+      <enumeration value="Genererte data: Sentralpunkt"/>
+      <enumeration value="Genererte data: Sammenknytningspunkt, randpunkt">
+        <annotation>
+          <documentation>Genererte data: Sammenknytningspunkt (f.eks mellom ulike kartlegginger), randpunkt (f.eks mellom ulike kilder til kart)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Koordinater hentet fra GAB">
+        <annotation>
+          <documentation>Koordinater hentet fra GAB, forløperen til registerdelen av matrikkelen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Koordinater hentet fra JREG">
+        <annotation>
+          <documentation>Koordinater hentet fra JREG, jordregisteret</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Beregnet">
+        <annotation>
+          <documentation>Beregnet, uspesifisert hvordan</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Spesielle metoder">
+        <annotation>
+          <documentation>Spesielle metoder, uspesifisert</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Spesielle metoder: Målt med stikkstang"/>
+      <enumeration value="Spesielle metoder: Målt med waterstang"/>
+      <enumeration value="Spesielle metoder: Målt med målehjul"/>
+      <enumeration value="Spesielle metoder: Målt med stigningsmåler"/>
+      <enumeration value="Fastsatt punkt">
+        <annotation>
+          <documentation>Punkt fastsatt ut fra et grunnlag (kart, bilde), f.eks ved partenes enighet ved en oppmålingsforretning</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Fastsatt ved dom eller kongelig resolusjon">
+        <annotation>
+          <documentation>Geometri fastsatt ved dom, lov, traktat eller kongelig resolusjon</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Annet (spesifiseres i filhode) ( bør vel fjernes, blir borte ved overføring mellom systemer)">
+        <annotation>
+          <documentation>Annet (spesifiseres i filhode)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Frihåndstegning">
+        <annotation>
+          <documentation>Digitalisert ut fra frihåndstegning.  Frihåndstegning er basert på svært grovt grunnlag eller ikke noe grunnlag</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Frihåndstegning på kart">
+        <annotation>
+          <documentation>Digitalisert fra krokering på kart, dvs grovt skissert på kart</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Frihåndstegning på skjerm">
+        <annotation>
+          <documentation>Digitalisert ut fra frihåndstegning (direkte på skjerm). Frihåndstegning er basert på svært grovt grunnlag eller ikke noe grunnlag</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Treghetsstedfesting"/>
+      <enumeration value="GNSS: Kodemåling, relative målinger">
+        <annotation>
+          <documentation>Innmålt med satellittbaserte systemer for navigasjon og posisjonering med global dekning (f.eks GPS, GLONASS, GALILEO): Kodemåling, relative målinger.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="GNSS: Kodemåling, enkle målinger">
+        <annotation>
+          <documentation>Innmålt med satellittbaserte systemer for navigasjon og posisjonering med global dekning (f.eks GPS, GLONASS, GALILEO): Kodemåling, enkle målinger.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="GNSS: Fasemåling, statisk måling">
+        <annotation>
+          <documentation>Innmålt med satellittbaserte systemer for navigasjon og posisjonering med global dekning (f.eks GPS, GLONASS, GALILEO): Fasemåling statisk måling.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="GNSS: Fasemåling, andre metoder">
+        <annotation>
+          <documentation>Innmålt med satellittbaserte systemer for navigasjon og posisjonering med global dekning (f.eks GPS, GLONASS, GALILEO): Fasemåling andre metoder.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Kombinasjon av GNSS/Treghet">
+        <annotation>
+          <documentation>Kombinasjon av GPS/Treghet</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="GNSS: Fasemåling RTK">
+        <annotation>
+          <documentation>Innmålt med satellittbaserte systemer for navigasjon og posisjonering med global dekning (f.eks GPS, GLONASS, GALILEO).: Fasemåling RTK (realtids kinematisk måling)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="GNSS: Fasemåling , float-løsning">
+        <annotation>
+          <documentation>Innmålt med satellittbaserte systemer for navigasjon og posisjonering med global dekning (f.eks GPS, GLONASS, GALILEO). Fasemåling float-løsning</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Ukjent målemetode">
+        <annotation>
+          <documentation>Målemetode er ukjent</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="MålemetodeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Posisjonskvalitet" substitutionGroup="gml:AbstractObject" type="marinelumlmodell:PosisjonskvalitetType"/>
+  <complexType name="PosisjonskvalitetType">
+    <sequence>
+      <element name="målemetode" type="marinelumlmodell:MålemetodeType">
+        <annotation>
+          <documentation>metode for måling i grunnriss (x,y), og høyde (z) når metoden er den samme som ved måling i grunnriss</documentation>
+        </annotation>
+      </element>
+      <element name="målemetodeNavn" type="string">
+        <annotation>
+          <documentation>navn på metode for måling i grunnriss (x,y), og høyde (z) når metoden er den samme som ved måling i grunnriss</documentation>
+          <appinfo>
+            <sc:taggedValue tag="SOSI_navn">MÅLEMETODENAVN</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="nøyaktighet" type="integer">
+        <annotation>
+          <documentation>punktstandardavviket i grunnriss for punkter samt tverravvik for linjer
+
+Merknad:
+Oppgitt i cm</documentation>
+          <appinfo>
+            <sc:taggedValue tag="SOSI_navn">NØYAKTIGHET</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="PosisjonskvalitetPropertyType">
+    <sequence>
+      <element ref="marinelumlmodell:Posisjonskvalitet"/>
+    </sequence>
+  </complexType>
+  <simpleType name="TemaKvalitetType">
+    <annotation>
+      <documentation>kvaliteten på registrering/kartlegging av tema sett i forhold til faktiske forhold i naturen. Ulik tematisk oppløsning/generaliseringsgrad kan være styrt av temaets samfunnsmessige betydning, områdets arealmessige betydning eller prosjektets økonomi. Med nøyaktighet i denne sammenheng menes hvor korrekt registreringen avspeiler objektets posisjon i naturen og presisjonen i valg av tematisk innhold i forhold til generalisering
+
+Merknad: Tematisk oppløsning/generaliseringsgrad kan være styrt av temaets samfunnsmessige betydning, områdets arealmessige betydning eller prosjektets målsetning
+
+
+-- Definition - -
+the quality of the registration/mapping of a geological thematic subject validated in relation to the actual conditions in nature, position accuracy and the preferred scale of the cartographic representation.</documentation>
+    </annotation>
+    <union memberTypes="marinelumlmodell:TemaKvalitetEnumerationType marinelumlmodell:TemaKvalitetOtherType"/>
+  </simpleType>
+  <simpleType name="TemaKvalitetEnumerationType">
+    <annotation>
+      <documentation>kvaliteten på registrering/kartlegging av tema sett i forhold til faktiske forhold i naturen. Ulik tematisk oppløsning/generaliseringsgrad kan være styrt av temaets samfunnsmessige betydning, områdets arealmessige betydning eller prosjektets økonomi. Med nøyaktighet i denne sammenheng menes hvor korrekt registreringen avspeiler objektets posisjon i naturen og presisjonen i valg av tematisk innhold i forhold til generalisering
+
+Merknad: Tematisk oppløsning/generaliseringsgrad kan være styrt av temaets samfunnsmessige betydning, områdets arealmessige betydning eller prosjektets målsetning
+
+
+-- Definition - -
+the quality of the registration/mapping of a geological thematic subject validated in relation to the actual conditions in nature, position accuracy and the preferred scale of the cartographic representation.</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Høyest mulig posisjonell og tematisk nøyaktighet">
+        <annotation>
+          <documentation>Den geologiske observasjonen/registreringen er stedfestet med høyest mulig posisjonell og tematisk nøyaktighet for direkte bruk i kommunenes reguleringsplaner (Målestokk under 1:20.000)
+
+-- Definition --
+The geological observation/registration is georeferenced with the highest possible positional and thematic accuracy for direct use in municipal development plans (Scale under 1:20.000)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Høy posisjonell- og tematisk nøyaktighet, høy oppløsning, lite generalisering">
+        <annotation>
+          <documentation>Registrering basert på det som for naturinformasjon må anses å være av høy posisjonell- og tematisk nøyaktighet (+/- 20 m). Høy oppløsning og lite generalisering. Kan anvendes i kommuneplanens arealdel. Minste arealenhet er 0.5-1 dekar (~M 1: 20.000)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="God posisjonell- og tematisk nøyaktighet, god oppløsning, noe generalisert">
+        <annotation>
+          <documentation>Registrering stedfestet med nøyaktighet i terrenget på +/- 50m, akseptabelt for oversiktsinformasjon på kommunenivå (arealplan). Minste arealenhet er ca. 2 dekar for viktige tema, ca. 5 dekar for øvrige (~M 1:50.000)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Lav posisjonell- og tematisk nøyaktighet, lav oppløsning, med generalisering">
+        <annotation>
+          <documentation>Registrering med lav oppløsning (+/- 100 m) og hvor det er gjort generalisering, ofte basert på flyfototolkning. Minste gjengitte arealenhet ca. 10 dekar for viktige tema, ca 20 dekar for de øvrige. Kan med forbehold benyttes som oversiktsinformasjon på kommunenivå (~M 1:100.000)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Meget lav posisjonell- og tematisk nøyaktighet, meget lav oppløsning, stor grad generalisert">
+        <annotation>
+          <documentation>Registrering basert på oversiktskartlegging i liten målestokk. Meget lav oppløsning (+/- 250 m) og kan inneholde stor grad av generalisering. Minste arealenhet er ca. 60 dekar. Bør kun anvendes til regionale oversikter (~M 1:250.000)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Meget lav posisjonell- og tematisk nøyaktighet, sterkt generalisert">
+        <annotation>
+          <documentation>Beregnet for oversiktskart i meget små målestokker. Minste arealenhet er ca. 1000 dekar. Anvendelsesområdet er landsoversikter og oversikt over store regioner (~M &gt; 250.000).</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TemaKvalitetOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

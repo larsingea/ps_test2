@@ -1,0 +1,117 @@
+---
+id: marine_l_uml_modell
+enabled: true
+providerType: FEATURE
+providerSubType: SQL
+nativeCrs:
+  code: 25833
+  forceAxisOrder: NONE
+nativeTimeZone: Europe/Oslo
+connectionInfo:
+  database: FIXME
+  host: FIXME
+  user: FIXME
+  password: FIXME-base64-encoded
+  schemas:
+  - public
+sourcePathDefaults:
+  primaryKey: objid
+  sortKey: objid
+types:
+  dataavgrensning:
+    sourcePath: /dataavgrensning
+    type: OBJECT
+    objectType: Dataavgrensning
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+      identifikasjon_lokalId:
+        sourcePath: identifikasjon_lokalid
+        type: STRING
+      identifikasjon_navnerom:
+        sourcePath: identifikasjon_navnerom
+        type: STRING
+      identifikasjon_versjonId:
+        sourcePath: identifikasjon_versjonid
+        type: STRING
+  marinlandskap:
+    sourcePath: /marinlandskap
+    type: OBJECT
+    objectType: MarinLandskap
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      landskapType:
+        sourcePath: landskaptype
+        type: STRING
+        constraints:
+          codelist: LandskapType
+          required: true
+      landskapTypeNavn:
+        sourcePath: landskaptypenavn
+        type: STRING
+        constraints:
+          required: true
+      egnetMålestokk:
+        sourcePath: egnetmålestokk
+        type: INTEGER
+      avgrensning:
+        sourcePath: "[objid=marinlandskapobjid]MarinLandskap_avgrensning/[marinlandskapsgrenseobjid=objid]marinlandskapsgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: MarinLandskapsgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: MarinLandskapsgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/marinlandskapsgrense/items/{{value}}"
+  marinlandskapsgrense:
+    sourcePath: /marinlandskapsgrense
+    type: OBJECT
+    objectType: MarinLandskapsgrense
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+      identifikasjon_lokalId:
+        sourcePath: identifikasjon_lokalid
+        type: STRING
+      identifikasjon_navnerom:
+        sourcePath: identifikasjon_navnerom
+        type: STRING
+      identifikasjon_versjonId:
+        sourcePath: identifikasjon_versjonid
+        type: STRING
