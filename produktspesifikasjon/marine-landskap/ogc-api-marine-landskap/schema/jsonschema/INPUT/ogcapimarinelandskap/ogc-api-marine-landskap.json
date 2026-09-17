@@ -1,0 +1,319 @@
+{
+  "$comment": "JSON Schema document created by ShapeChange - https://shapechange.net/",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://skjema.geonorge.no/SOSI/produktspesifikasjon/marine-landskap/ogc-api-marine-landskap/ogcapimarinelandskap/ogc-api-marine-landskap.json",
+  "definitions": {
+    "Dataavgrensning": {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "$ref": "https://geojson.org/schema/LineString.json"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "lokalid": {
+          "type": "string"
+        },
+        "identifikasjon": {
+          "$ref": "#/definitions/Identifikasjon"
+        }
+      },
+      "required": [
+        "@type"
+      ]
+    },
+    "GeolPavisningstype": {
+      "type": "string",
+      "enum": [
+        "0",
+        "1",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "2",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29",
+        "3",
+        "30",
+        "31",
+        "32",
+        "33",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    "Identifikasjon": {
+      "type": "object",
+      "properties": {
+        "lokalId": {
+          "type": "string"
+        },
+        "navnerom": {
+          "type": "string"
+        },
+        "versjonId": {
+          "type": "string"
+        }
+      }
+    },
+    "LandskapType": {
+      "type": "string",
+      "enum": [
+        "1",
+        "21",
+        "22",
+        "31",
+        "32",
+        "33",
+        "41",
+        "42",
+        "43",
+        "431",
+        "51",
+        "52"
+      ]
+    },
+    "MarinLandskap": {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "$ref": "https://geojson.org/schema/Polygon.json"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "lokalid": {
+          "type": "string"
+        },
+        "identifikasjon": {
+          "$ref": "#/definitions/Identifikasjon"
+        },
+        "datauttaksdato": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "førsteDigitaliseringsdato": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "landskapType": {
+          "$ref": "#/definitions/LandskapType"
+        },
+        "landskapTypeNavn": {
+          "type": "string"
+        },
+        "egnetMålestokk": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "@type",
+        "datauttaksdato",
+        "identifikasjon",
+        "landskapType",
+        "landskapTypeNavn"
+      ]
+    },
+    "MarinLandskapsgrense": {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "$ref": "https://geojson.org/schema/LineString.json"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "lokalid": {
+          "type": "string"
+        },
+        "datauttaksdato": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "førsteDigitaliseringsdato": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "oppdateringsdato": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "kvalitet": {
+          "$ref": "#/definitions/Posisjonskvalitet"
+        },
+        "medium": {
+          "$ref": "#/definitions/Medium"
+        },
+        "mediumNavn": {
+          "type": "string"
+        },
+        "opphav": {
+          "type": "string"
+        },
+        "geolPavisningstype": {
+          "$ref": "#/definitions/GeolPavisningstype"
+        },
+        "geolPavisningstypeNavn": {
+          "type": "string"
+        },
+        "temakvalitet": {
+          "$ref": "#/definitions/Temakvalitet"
+        },
+        "identifikasjon": {
+          "$ref": "#/definitions/Identifikasjon"
+        }
+      },
+      "required": [
+        "@type",
+        "datauttaksdato",
+        "førsteDigitaliseringsdato",
+        "geolPavisningstype",
+        "geolPavisningstypeNavn",
+        "kvalitet",
+        "medium",
+        "mediumNavn",
+        "opphav",
+        "temakvalitet"
+      ]
+    },
+    "Medium": {
+      "type": "string",
+      "enum": [
+        "B",
+        "D",
+        "I",
+        "J",
+        "L",
+        "O",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X"
+      ]
+    },
+    "Målemetode": {
+      "type": "string",
+      "enum": [
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "38",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46",
+        "47",
+        "48",
+        "49",
+        "50",
+        "51",
+        "52",
+        "53",
+        "54",
+        "55",
+        "56",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70",
+        "71",
+        "72",
+        "73",
+        "74",
+        "77",
+        "78",
+        "79",
+        "80",
+        "81",
+        "82",
+        "90",
+        "91",
+        "92",
+        "93",
+        "94",
+        "95",
+        "96",
+        "97",
+        "99"
+      ]
+    },
+    "Posisjonskvalitet": {
+      "type": "object",
+      "properties": {
+        "målemetode": {
+          "$ref": "#/definitions/Målemetode"
+        },
+        "målemetodeNavn": {
+          "type": "string"
+        },
+        "nøyaktighet": {
+          "type": "integer"
+        }
+      }
+    },
+    "Temakvalitet": {
+      "type": "string",
+      "enum": [
+        "dårlig",
+        "god",
+        "megetGod",
+        "noeDårlig",
+        "noksåGod",
+        "særdelesGod"
+      ]
+    }
+  }
+}

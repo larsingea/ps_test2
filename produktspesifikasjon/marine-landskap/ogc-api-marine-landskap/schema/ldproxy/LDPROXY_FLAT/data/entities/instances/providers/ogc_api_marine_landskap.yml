@@ -1,0 +1,185 @@
+---
+id: ogc_api_marine_landskap
+enabled: true
+providerType: FEATURE
+providerSubType: SQL
+nativeCrs:
+  code: 25833
+  forceAxisOrder: NONE
+nativeTimeZone: Europe/Oslo
+connectionInfo:
+  database: FIXME
+  host: FIXME
+  user: FIXME
+  password: FIXME-base64-encoded
+  schemas:
+  - public
+sourcePathDefaults:
+  primaryKey: objid
+  sortKey: objid
+types:
+  dataavgrensning:
+    sourcePath: /dataavgrensning
+    type: OBJECT
+    objectType: Dataavgrensning
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      geometry:
+        sourcePath: geometry
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+      lokalid:
+        sourcePath: lokalid
+        type: STRING
+      identifikasjon_lokalId:
+        sourcePath: identifikasjon_lokalid
+        type: STRING
+      identifikasjon_navnerom:
+        sourcePath: identifikasjon_navnerom
+        type: STRING
+      identifikasjon_versjonId:
+        sourcePath: identifikasjon_versjonid
+        type: STRING
+  marinlandskap:
+    sourcePath: /marinlandskap
+    type: OBJECT
+    objectType: MarinLandskap
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      geometry:
+        sourcePath: geometry
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      lokalid:
+        sourcePath: lokalid
+        type: STRING
+      identifikasjon_lokalId:
+        sourcePath: identifikasjon_lokalid
+        type: STRING
+      identifikasjon_navnerom:
+        sourcePath: identifikasjon_navnerom
+        type: STRING
+      identifikasjon_versjonId:
+        sourcePath: identifikasjon_versjonid
+        type: STRING
+      datauttaksdato:
+        sourcePath: datauttaksdato
+        type: DATETIME
+        role: PRIMARY_INSTANT
+        constraints:
+          required: true
+      førsteDigitaliseringsdato:
+        sourcePath: førstedigitaliseringsdato
+        type: DATETIME
+      landskapType:
+        sourcePath: landskaptype
+        type: STRING
+        constraints:
+          codelist: LandskapType
+          required: true
+      landskapTypeNavn:
+        sourcePath: landskaptypenavn
+        type: STRING
+        constraints:
+          required: true
+      egnetMålestokk:
+        sourcePath: egnetmålestokk
+        type: INTEGER
+  marinlandskapsgrense:
+    sourcePath: /marinlandskapsgrense
+    type: OBJECT
+    objectType: MarinLandskapsgrense
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      geometry:
+        sourcePath: geometry
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+      lokalid:
+        sourcePath: lokalid
+        type: STRING
+      datauttaksdato:
+        sourcePath: datauttaksdato
+        type: DATETIME
+        role: PRIMARY_INSTANT
+        constraints:
+          required: true
+      førsteDigitaliseringsdato:
+        sourcePath: førstedigitaliseringsdato
+        type: DATETIME
+        constraints:
+          required: true
+      oppdateringsdato:
+        sourcePath: oppdateringsdato
+        type: DATETIME
+      kvalitet_målemetode:
+        sourcePath: kvalitet_målemetode
+        type: STRING
+        constraints:
+          codelist: M_lemetode
+      kvalitet_målemetodeNavn:
+        sourcePath: kvalitet_målemetodenavn
+        type: STRING
+      kvalitet_nøyaktighet:
+        sourcePath: kvalitet_nøyaktighet
+        type: INTEGER
+      medium:
+        sourcePath: medium
+        type: STRING
+        constraints:
+          codelist: Medium
+          required: true
+      mediumNavn:
+        sourcePath: mediumnavn
+        type: STRING
+        constraints:
+          required: true
+      opphav:
+        sourcePath: opphav
+        type: STRING
+        constraints:
+          required: true
+      geolPavisningstype:
+        sourcePath: geolpavisningstype
+        type: STRING
+        constraints:
+          codelist: GeolPavisningstype
+          required: true
+      geolPavisningstypeNavn:
+        sourcePath: geolpavisningstypenavn
+        type: STRING
+        constraints:
+          required: true
+      temakvalitet:
+        sourcePath: temakvalitet
+        type: STRING
+        constraints:
+          codelist: Temakvalitet
+          required: true
+      identifikasjon_lokalId:
+        sourcePath: identifikasjon_lokalid
+        type: STRING
+      identifikasjon_navnerom:
+        sourcePath: identifikasjon_navnerom
+        type: STRING
+      identifikasjon_versjonId:
+        sourcePath: identifikasjon_versjonid
+        type: STRING

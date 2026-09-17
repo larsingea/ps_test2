@@ -1,0 +1,235 @@
+{
+  "$comment": "JSON Schema document created by ShapeChange - https://shapechange.net/",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://skjema.geonorge.no/SOSI/produktspesifikasjon/marine-landskap/marine-l-uml-modell/marinelumlmodell/marine-l-uml-modell.json",
+  "definitions": {
+    "Dataavgrensning": {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "$ref": "https://geojson.org/schema/LineString.json"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "identifikasjon": {
+          "$ref": "#/definitions/Identifikasjon"
+        }
+      },
+      "required": [
+        "@type"
+      ]
+    },
+    "FellesegenskaperFlater": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "identifikasjon": {
+          "$ref": "#/definitions/Identifikasjon"
+        },
+        "datauttaksdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "førsteDigitaliseringsdato": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "@type",
+        "datauttaksdato",
+        "identifikasjon"
+      ]
+    },
+    "FellesegenskaperLosmasse": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "datauttaksdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "førsteDigitaliseringsdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "oppdateringsdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "kvalitet": {
+          "$ref": "#/definitions/Posisjonskvalitet"
+        },
+        "medium": {
+          "$ref": "#/definitions/Medium"
+        },
+        "mediumNavn": {
+          "type": "string"
+        },
+        "opphav": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@type",
+        "datauttaksdato",
+        "førsteDigitaliseringsdato",
+        "kvalitet",
+        "medium",
+        "mediumNavn",
+        "opphav"
+      ]
+    },
+    "GeolPavisningstype": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Identifikasjon": {
+      "type": "object",
+      "properties": {
+        "lokalId": {
+          "type": "string"
+        },
+        "navnerom": {
+          "type": "string"
+        },
+        "versjonId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "lokalId",
+        "navnerom",
+        "versjonId"
+      ]
+    },
+    "LandskapType": {
+      "type": "string",
+      "format": "uri"
+    },
+    "LosmasseGrense": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FellesegenskaperLosmasse"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geolPavisningstype": {
+              "$ref": "#/definitions/GeolPavisningstype"
+            },
+            "geolPavisningstypeNavn": {
+              "type": "string"
+            },
+            "temakvalitet": {
+              "$ref": "#/definitions/TemaKvalitet"
+            }
+          },
+          "required": [
+            "geolPavisningstype",
+            "geolPavisningstypeNavn",
+            "temakvalitet"
+          ]
+        }
+      ]
+    },
+    "MarinLandskap": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FellesegenskaperFlater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "landskapType": {
+              "$ref": "#/definitions/LandskapType"
+            },
+            "landskapTypeNavn": {
+              "type": "string"
+            },
+            "egnetMålestokk": {
+              "type": "integer"
+            },
+            "avgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "landskapType",
+            "landskapTypeNavn"
+          ]
+        }
+      ]
+    },
+    "MarinLandskapsgrense": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/LosmasseGrense"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            },
+            "identifikasjon": {
+              "$ref": "#/definitions/Identifikasjon"
+            }
+          }
+        }
+      ]
+    },
+    "Medium": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Målemetode": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Posisjonskvalitet": {
+      "type": "object",
+      "properties": {
+        "målemetode": {
+          "$ref": "#/definitions/Målemetode"
+        },
+        "målemetodeNavn": {
+          "type": "string"
+        },
+        "nøyaktighet": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "målemetode",
+        "målemetodeNavn"
+      ]
+    },
+    "TemaKvalitet": {
+      "type": "string",
+      "format": "uri"
+    }
+  }
+}
