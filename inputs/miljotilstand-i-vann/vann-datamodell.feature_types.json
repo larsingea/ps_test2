@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Vann",
+    "description": "Vann",
+    "abstract": false,
+    "attributes": [
+      {
+        "name": "identifikasjon",
+        "type": "Vanntype",
+        "cardinality": "0..1",
+        "description": "Unik identifikasjon av forekomst (objekt)",
+        "attributes": [
+          {
+            "name": "lokalid",
+            "type": "CharacterString",
+            "cardinality": "0..1",
+            "description": "uuid"
+          },
+          {
+            "name": "navnerom",
+            "type": "CharacterString",
+            "cardinality": "0..1",
+            "description": "Navnerom "
+          },
+          {
+            "name": "versjon",
+            "type": "CharacterString",
+            "cardinality": "0..1",
+            "description": "Versjon av forekomst"
+          }
+        ]
+      }
+    ]
+  }
+]
