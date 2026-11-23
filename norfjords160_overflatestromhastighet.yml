@@ -1,0 +1,9 @@
+metadataId: b882b4e5-6e02-4c83-b6a8-3fe7958f64bb
+output_directory: produktspesifikasjon
+product_slug: norfjords160_overflatestromhastighet
+updated: '2026-11-23'
+scopes:
+- name: Egen datamodell
+  url: inputs/norfjords160-overflatestromhastighet/egen-datamodell.feature_types.json
+  generator: custom
+  description: ''
