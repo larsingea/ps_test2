@@ -1,0 +1,9 @@
+metadataId: bbaaee09-41f3-4a63-a98b-5f46083a62c1
+output_directory: produktspesifikasjon
+product_slug: miljotilstand_i_vann
+updated: '2026-11-23'
+scopes:
+- name: Vann datamodell
+  url: inputs/miljotilstand-i-vann/vann-datamodell.feature_types.json
+  generator: custom
+  description: Egen datamodell
